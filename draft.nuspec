@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>draft</id>
+    <version>0.14.1</version>
+    <title>Draft: A tool for developers to create cloud-native applications on Kubernetes.</title>
+    <authors>Microsoft</authors>
+    <owners>chocolatey,Dave Hiller</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/Azure/draft/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://draft.sh/</projectUrl>
+    <iconUrl>https://draft.sh/assets/images/draft-sm.png</iconUrl>
+    <description>![![Draft Logo](./docs/img/draft-logo.png)
+[![Build Status](https://circleci.com/gh/Azure/draft.svg?style=svg)](https://circleci.com/gh/Azure/draft)
+
+# Draft: Streamlined Kubernetes Development
+Draft makes it easy to build applications that run on Kubernetes.  Draft targets the "inner loop" of a developer's workflow: as they hack on code, but before code is committed to version control.
+
+
+## _NOTE: Draft is experimental and does not have a stable release yet._
+As an example, starting with the 0.12 release Draft moves the containment and deployment engine to your local machine. This changes quite a bit about how Draft works compared to prior releases; for details, see [the changelog](CHANGELOG.md).
+
+For previous users, this change means that you now have more control over where your container images are stored, and in the local Minikube environment you can skip pushing the images entirely, which speeds up the developer iteration speed _dramatically_. (Short version without jargon: you can build and run your app really fast.) However, when you want to push your images to an image registry service like Docker hub (or ACR, GCR, Quay.io, and so on) you must inform draft which registry to use and your cluster must have access to the secrets for that registry.
+
+## Overview
+
+[![asciicast](https://asciinema.org/a/WGVE7JNodpBEOautl105tdc97.png)](https://asciinema.org/a/WGVE7JNodpBEOautl105tdc97)
+
+Using Draft is as simple as:
+
+1. `draft init` to set up draft (after prerequisites are installed)
+2. `draft create` to containerize your application based on Draft [packs](docs/reference/dep-003.md)
+3. `draft up` to deploy your application to a Kubernetes dev sandbox, accessible using `draft connect` over a secured tunnel.
+4. Use a local editor to modify the application, with changes deployed to Kubernetes in seconds.
+
+Once the developer is happy with changes made via Draft, they commit and push to version control, after which a continuous integration (CI) system takes over.  Draft builds upon [Kubernetes Helm][helm] and the [Kubernetes Chart format](https://github.com/kubernetes/helm/blob/master/docs/charts.md), making it easy to construct CI pipelines from Draft-enabled applications.
+</description>
+    <summary>A tool for developers to create cloud-native applications on Kubernetes.</summary>
+    <releaseNotes>https://github.com/Azure/draft/releases/tag/v0.14.1</releaseNotes>
+    <copyright>(c) 2017 Kubernetes</copyright>
+    <tags>draft kubernetes minikube docker containers</tags>
+    <dependencies>
+      <dependency id="minikube" />
+    </dependencies>
+  </metadata>
+</package>
